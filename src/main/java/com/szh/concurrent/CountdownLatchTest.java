@@ -13,14 +13,14 @@ public class CountdownLatchTest {
 			Runnable runnable = new Runnable(){
 					public void run(){
 					try {
-						System.out.println("�߳�" + Thread.currentThread().getName() + 
-								"��׼����������");						
+						System.out.println(Thread.currentThread().getName() +
+								"await before");
 						cdOrder.await();
-						System.out.println("�߳�" + Thread.currentThread().getName() + 
-						"�ѽ�������");								
+						System.out.println(Thread.currentThread().getName() +
+						"await ing");
 						Thread.sleep((long)(Math.random()*10000));	
-						System.out.println("�߳�" + Thread.currentThread().getName() + 
-								"��Ӧ�������");						
+						System.out.println(Thread.currentThread().getName() +
+								"sleep after");
 						cdAnswer.countDown();						
 					} catch (Exception e) {
 						e.printStackTrace();
@@ -32,18 +32,17 @@ public class CountdownLatchTest {
 		try {
 			Thread.sleep((long)(Math.random()*10000));
 		
-			System.out.println("�߳�" + Thread.currentThread().getName() + 
-					"������������");						
+			System.out.println( Thread.currentThread().getName() +
+					"main thread");
 			cdOrder.countDown();
-			System.out.println("�߳�" + Thread.currentThread().getName() + 
-			"�ѷ���������ڵȴ���");	
+			System.out.println(Thread.currentThread().getName() +
+			"main thread countdown");
 			cdAnswer.await();
-			System.out.println("�߳�" + Thread.currentThread().getName() + 
-			"���յ�������Ӧ���");	
+			System.out.println(Thread.currentThread().getName() +
+			"main thread cd await end");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}				
 		service.shutdown();
-
 	}
 }

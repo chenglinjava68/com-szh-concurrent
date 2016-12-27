@@ -26,8 +26,7 @@ public class SemaphoreTest {
 					System.out.println("�߳�" + Thread.currentThread().getName() + 
 							"�����뿪");					
 					sp.release();
-					//���������ʱ��ִ�в�׼ȷ����Ϊ��û�к�����Ĵ���ϳ�ԭ�ӵ�Ԫ
-					System.out.println("�߳�" + Thread.currentThread().getName() + 
+					System.out.println("�߳�" + Thread.currentThread().getName() +
 							"���뿪����ǰ����" + (3-sp.availablePermits()) + "������");					
 				}
 			};

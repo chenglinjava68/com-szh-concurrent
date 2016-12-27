@@ -4,7 +4,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
 /**
- * Created by zhihaosong on 16-12-27.
+ * Created by zhihaosong on 16-01-27.
  */
 public class TestQueue {
     public static void main(String[] args){

@@ -5,10 +5,6 @@ import java.util.concurrent.*;
 
 
 public class CallableAndFuture {
-
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         ExecutorService threadPool = Executors.newSingleThreadExecutor();
         Future<String> future =
@@ -18,21 +14,16 @@ public class CallableAndFuture {
                                 Thread.sleep(2000);
                                 return "hello";
                             }
-
-                            ;
                         }
                 );
-        System.out.println("�ȴ���");
+        System.out.println("main thread");
         try {
-            System.out.println("�õ����" + future.get());
+            System.out.println("future get" + future.get());
         } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
         ExecutorService threadPool2 = Executors.newFixedThreadPool(10);
         CompletionService<Integer> completionService = new ExecutorCompletionService<Integer>(threadPool2);
         for (int i = 1; i <= 10; i++) {
@@ -50,17 +41,10 @@ public class CallableAndFuture {
                 System.out.println(
                         completionService.take().get());
             } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             } catch (ExecutionException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }
-
-
-
     }
-
-
 }

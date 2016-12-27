@@ -52,7 +52,7 @@ public class User implements Cloneable{
 		String a="1"+"";
 		String b="1"+"";
 
-		System.out.println(a.);		System.out.println(b.hashCode());
+		System.out.println(a.hashCode());		System.out.println(b.hashCode());
 
 		//System.out.println(i);
 	}
