@@ -12,10 +12,10 @@ public class BlockingQueueTest {
                     while(true){
                         try {
                             Thread.sleep((long)(Math.random()*1000));
-                            System.out.println(Thread.currentThread().getName() + "×¼±¸·ÅÊı¾İ!");
+                            System.out.println(Thread.currentThread().getName() + "å‡†å¤‡æ”¾æ•°æ®!");
                             queue.put(1);
-                            System.out.println(Thread.currentThread().getName() + "ÒÑ¾­·ÅÁËÊı¾İ£¬" +
-                                    "¶ÓÁĞÄ¿Ç°ÓĞ" + queue.size() + "¸öÊı¾İ");
+                            System.out.println(Thread.currentThread().getName() + "å·²ç»æ”¾äº†æ•°æ®ï¼Œ" +
+                                    "é˜Ÿåˆ—ç›®å‰æœ‰" + queue.size() + "ä¸ªæ•°æ®");
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -30,12 +30,12 @@ public class BlockingQueueTest {
             public void run(){
                 while(true){
                     try {
-                        //½«´Ë´¦µÄË¯ÃßÊ±¼ä·Ö±ğ¸ÄÎª100ºÍ1000£¬¹Û²ìÔËĞĞ½á¹û
+                        //å°†æ­¤å¤„çš„ç¡çœ æ—¶é—´åˆ†åˆ«æ”¹ä¸º100å’Œ1000ï¼Œè§‚å¯Ÿè¿è¡Œç»“æœ
                         Thread.sleep(1000);
-                        System.out.println(Thread.currentThread().getName() + "×¼±¸È¡Êı¾İ!");
+                        System.out.println(Thread.currentThread().getName() + "å‡†å¤‡å–æ•°æ®!");
                         queue.take();
-                        System.out.println(Thread.currentThread().getName() + "ÒÑ¾­È¡×ßÊı¾İ£¬" +
-                                "¶ÓÁĞÄ¿Ç°ÓĞ" + queue.size() + "¸öÊı¾İ");
+                        System.out.println(Thread.currentThread().getName() + "å·²ç»å–èµ°æ•°æ®ï¼Œ" +
+                                "é˜Ÿåˆ—ç›®å‰æœ‰" + queue.size() + "ä¸ªæ•°æ®");
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
