@@ -22,7 +22,6 @@ public class ThreadPoolTest {
                         try {
                             Thread.sleep(20);
                         } catch (InterruptedException e) {
-                            // TODO Auto-generated catch block
                             e.printStackTrace();
                         }
                         System.out.println(Thread.currentThread().getName() + " is looping of " + j + " for  task of " + task);
@@ -32,7 +31,6 @@ public class ThreadPoolTest {
         }
         System.out.println("all of 10 tasks have committed! ");
         //threadPool.shutdownNow();
-
         Executors.newScheduledThreadPool(3).scheduleAtFixedRate(
                 new Runnable() {
                     @Override

@@ -6,9 +6,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class ThreeConditionCommunication {
 
-	/**
-	 * @param args
-	 */
+
 	public static void main(String[] args) {
 		
 		final Business business = new Business();
@@ -59,7 +57,6 @@ public class ThreeConditionCommunication {
 					  try {
 						condition2.await();
 					} catch (Exception e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				  }
@@ -80,7 +77,6 @@ public class ThreeConditionCommunication {
 					  try {
 						condition3.await();
 					} catch (Exception e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				  }
@@ -101,7 +97,6 @@ public class ThreeConditionCommunication {
 				  		try {
 							condition1.await();
 						} catch (Exception e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 				  	}

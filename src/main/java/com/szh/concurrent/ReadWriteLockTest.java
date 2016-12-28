@@ -31,7 +31,7 @@ public class ReadWriteLockTest {
 }
 
 class Queue3 {
-    private Object data = null;
+    private Object data = null;//共享数据，只能有一个线程能写该数据，但可以有多个线程同时读该数据。
     ReadWriteLock rwl = new ReentrantReadWriteLock();
 
     public void get() {

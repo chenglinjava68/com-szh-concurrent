@@ -20,7 +20,7 @@ public class LockTest {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    outputer.output("zhangxiaoxiang");
+                    outputer.output("szh");
                 }
             }
         }).start();
@@ -34,7 +34,7 @@ public class LockTest {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    outputer.output("lihuoming");
+                    outputer.output("ayb");
                 }
 
             }

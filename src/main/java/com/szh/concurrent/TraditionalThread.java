@@ -2,9 +2,6 @@ package com.szh.concurrent;
 
 public class TraditionalThread {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
 
         Thread thread = new Thread() {

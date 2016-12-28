@@ -16,9 +16,9 @@ public class CallableAndFuture {
                             }
                         }
                 );
-        System.out.println("main thread");
+        System.out.println("wait result");
         try {
-            System.out.println("future get" + future.get());
+            System.out.println("future get result:" + future.get());
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (Exception e) {
