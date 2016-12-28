@@ -8,5 +8,6 @@
     <file url="file://$PROJECT_DIR$/src/main/java/com/szh/concurrent/ExchangerTest.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/szh/concurrent/SemaphoreTest.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/szh/queue/Test.java" charset="GBK" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

@@ -29,4 +29,7 @@
       <module name="com-szh-concurrent" target="1.6" />
     </bytecodeTargetLevel>
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_STRING" value="-encoding utf-8" />
+  </component>
 </project>
