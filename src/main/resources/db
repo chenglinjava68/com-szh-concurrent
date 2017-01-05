@@ -1,0 +1,42 @@
+CREATE TABLE `tb_sms_data` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `tpl_id` varchar(50)  NOT NULL DEFAULT '' COMMENT '模板号id',
+  `biz_code` varchar(50)  NOT NULL DEFAULT '' COMMENT '此码对应通道与签名',
+  `sms_content` varchar(500) NOT NULL DEFAULT '' COMMENT '短信内容',
+  `channel` varchar(100) NOT NULL DEFAULT '' COMMENT '通道编码',
+  `signature` varchar(100) NOT NULL DEFAULT '' COMMENT '签名编码',
+  `mobile` varchar(11) NOT NULL DEFAULT '' COMMENT '电话号码',
+  `extend_code` varchar(11) NOT NULL DEFAULT '*' COMMENT '扩展码',
+  `status` int(1) unsigned NOT NULL DEFAULT '0' COMMENT '处理状态',
+  `send_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '发送时间',
+  `feedback_code` varchar(50) NOT NULL DEFAULT '' COMMENT '回馈码',
+  `feedback_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '回馈返回时间',
+  `create_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '创建时间',
+  `update_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=330 DEFAULT CHARSET=utf8 COMMENT='短信待发送数据- --by yunbin.an'
+
+
+
+
+CREATE TABLE `tb_sms_template` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `tpl_id` varchar(50) NOT NULL  DEFAULT '' COMMENT '模板号',
+  `content` varchar(500) NOT NULL DEFAULT '' COMMENT '模板内容',
+  `biz_code` varchar(50)  NOT NULL DEFAULT '' COMMENT '根据此码程序获取通道与签名',
+  `create_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '创建时间',
+  `update_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=330 DEFAULT CHARSET=utf8 COMMENT='短信模板- --by zhihao.song'
+
+
+
+CREATE TABLE `tb_biz_channel` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `biz_code` varchar(50)  NOT NULL DEFAULT '' COMMENT 'code码',
+  `channel_code` varchar(50)  NOT NULL DEFAULT '' COMMENT '通道码',
+  `weight` int(10) unsigned NOT NULL DEFAULT 1 COMMENT '通道优先级',
+  `create_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '创建时间',
+  `update_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+   PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=330 DEFAULT CHARSET=utf8 COMMENT='bizcode映射channelcode- --by zhihao.song'
