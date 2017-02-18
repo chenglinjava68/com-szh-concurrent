@@ -31,4 +31,23 @@ public class ReconstructBinaryTree {
         }
         return root;
     }
+
+    public static void main(String[] args) {
+        System.out.println(new ReconstructBinaryTree().reConstructBinaryTree
+                (
+                        new int[]{1, 2, 4, 7, 3, 5, 6, 8},
+                        new int[]{4, 7, 2, 1, 5, 3, 8, 6}
+                ));
+    }
+
+}
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+
+    TreeNode(int x) {
+        val = x;
+    }
 }

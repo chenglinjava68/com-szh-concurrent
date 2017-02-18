@@ -1,4 +1,4 @@
-package com.szh.algorithm;
+package com.szh.demo;
 
 
 import com.szh.util.StringUtil;

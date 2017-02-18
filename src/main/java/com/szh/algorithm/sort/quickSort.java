@@ -1,4 +1,4 @@
-package com.szh.algorithm;
+package com.szh.algorithm.sort;
 
 public class quickSort {
    /* public static int getMiddel(int[] a, int low, int high) {
