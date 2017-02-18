@@ -1,4 +1,4 @@
-package com.szh.queue;
+package com.szh.algorithm.queue;
 
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.SynchronousQueue;
@@ -32,8 +32,8 @@ public class Test {
         }
 
         System.out.println("begin:" + (System.currentTimeMillis() / 1000));
-        for (int i = 0; i < 10; i++) {  //ÕâÐÐ²»ÄÜ¸Ä¶¯
-            String input = i + "";  //ÕâÐÐ²»ÄÜ¸Ä¶¯
+        for (int i = 0; i < 10; i++) {  //ï¿½ï¿½ï¿½Ð²ï¿½ï¿½Ü¸Ä¶ï¿½
+            String input = i + "";  //ï¿½ï¿½ï¿½Ð²ï¿½ï¿½Ü¸Ä¶ï¿½
             try {
                 queue.put(input);
             } catch (InterruptedException e) {
@@ -44,7 +44,7 @@ public class Test {
     }
 }
 
-//²»ÄÜ¸Ä¶¯´ËTestDoÀà
+//ï¿½ï¿½ï¿½Ü¸Ä¶ï¿½ï¿½ï¿½TestDoï¿½ï¿½
 class TestDo {
     public static String doSome(String input) {
 

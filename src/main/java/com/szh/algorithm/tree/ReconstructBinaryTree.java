@@ -1,4 +1,4 @@
-package com.szh.tree;
+package com.szh.algorithm.tree;
 
 /**
  * 前序遍历+中序遍历 重构二叉树

@@ -1,4 +1,4 @@
-package com.szh.queue;
+package com.szh.algorithm.queue;
 
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;

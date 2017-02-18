@@ -1,4 +1,4 @@
-package com.szh.tree;
+package com.szh.algorithm.tree;
 
 class TreeNode {
     int val;
