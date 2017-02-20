@@ -40,7 +40,7 @@ public class TestQueue {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
-                //Test.parseLog(log);
+                //tryCatchFianllyTest.parseLog(log);
             }
         }
     }

@@ -1,5 +1,7 @@
 package com.szh.demo;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,5 +11,6 @@ import java.util.Map;
 public class HashMapTest {
     public static void main(String[] args) {
         HashMap map = new HashMap();
+       //new ArrayList
     }
 }

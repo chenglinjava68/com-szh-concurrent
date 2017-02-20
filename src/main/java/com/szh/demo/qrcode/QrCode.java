@@ -1,4 +1,3 @@
-/*
 package com.szh.demo.qrcode;
 
 import com.google.zxing.*;
@@ -47,10 +46,8 @@ public class QrCode {
                 .lastIndexOf('.') + 1), new File(filePath));
     }
 
-    */
-/*
-    创建二维码以流的方式
-     *//*
+    /*创建二维码以流的方式*/
+
 
     public static InputStream createQRCodeToStream(String qrCodeData, String filePath,
                                                    String charset, Map hintMap, int qrCodeheight, int qrCodewidth) {
@@ -71,10 +68,8 @@ public class QrCode {
 
     }
 
-    */
-/*
-      创建二维码以流的方式
-   *//*
+      /*创建二维码以流的方式*/
+
 
     public static void getQrCode() {
         String qrCodeData = "https://www.baidu.com";
@@ -103,10 +98,8 @@ public class QrCode {
             e.printStackTrace();
         }
     }
-    */
-/*
-        读取二维码
-     *//*
+        /*读取二维码*/
+
 
 
     public static String readQRCode(String filePath, String charset, Map hintMap)
@@ -119,4 +112,3 @@ public class QrCode {
         return qrCodeResult.getText();
     }
 }
-*/
