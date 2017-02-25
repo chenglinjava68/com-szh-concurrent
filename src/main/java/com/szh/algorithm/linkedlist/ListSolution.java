@@ -6,7 +6,7 @@ import java.util.LinkedList;
 /**
  * Created by zhihaosong on 17-2-23.
  */
-public class listSolution {
+public class ListSolution {
     public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
         if (listNode == null)
             return new ArrayList();
@@ -22,34 +22,24 @@ public class listSolution {
         return reversePrintList;
     }
 
+    /*
+    递归实现
+     */
     public ArrayList<Integer> printListFromTailToHead1(ListNode listNode) {
-
-
-        ArrayList<Integer> al = new ArrayList<Integer>();
-        ListNode p = listNode;
-        xx(al, listNode);
-        return al;
+        ArrayList<Integer> reversePrintList = new ArrayList<Integer>();
+        deepReverse(reversePrintList, listNode);
+        return reversePrintList;
     }
 
 
-    public void xx(ArrayList<Integer> al, ListNode n) {
-        if (n != null) {
-            xx(al, n.next);
-            al.add(n.val);
+    public void deepReverse(ArrayList<Integer> reversePrintList, ListNode initListNode) {
+        if (initListNode != null) {
+            deepReverse(reversePrintList, initListNode.next);
+            reversePrintList.add(initListNode.val);
         }
     }
 
     public static void main(String[] args) {
 
     }
-
-    class ListNode {
-        int val;
-        ListNode next = null;
-
-        ListNode(int val) {
-            this.val = val;
-        }
-    }
-
 }
