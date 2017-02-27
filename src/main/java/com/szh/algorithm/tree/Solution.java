@@ -1,7 +1,10 @@
 package com.szh.algorithm.tree;
 
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * 前序遍历+中序遍历 重构二叉树
@@ -67,6 +70,66 @@ public class Solution {
             prePrint(root.right);
     }
 
+    public ArrayList<Integer> PrintFromTopToBottom(TreeNode root) {
+        if (root == null) return null;
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            TreeNode index = queue.poll();
+            result.add(index.val);
+            if (index.left != null) {
+                queue.add(index.left);
+            }
+            if (index.right != null)
+                queue.add(index.right);
+        }
+        return result;
+    }
+
+    public boolean VerifySquenceOfBST(int[] sequence) {
+        if (sequence == null || sequence.length == 0)
+            return false;
+        return judgeBST(sequence, 0, sequence.length - 1);
+    }
+
+    public boolean judgeBST(int[] sequence, int left, int right) {
+        if (right <= left) return true;
+        int i = left;
+        for (; i < right; i++) {
+            if (sequence[i] > sequence[right])
+                break;
+        }
+        for (int j = i; j < right; j++) {
+            if (sequence[j] < sequence[right])
+                return false;
+        }
+        return judgeBST(sequence, left, i - 1) && judgeBST(sequence, i, right - 1);
+    }
+
+    private ArrayList<ArrayList<Integer>> paths = new ArrayList<ArrayList<Integer>>();
+    private ArrayList<Integer> tempPath = new ArrayList<Integer>();
+
+    public ArrayList<ArrayList<Integer>> FindPath(TreeNode root, int target) {
+        if (root == null) return null;
+        ArrayList<ArrayList<Integer>> paths = new ArrayList<ArrayList<Integer>>();
+        ArrayList<Integer> tempPath = new ArrayList<Integer>();
+        AddFindPath(paths, tempPath, root, target);
+        return paths;
+    }
+
+    public void AddFindPath(
+            ArrayList<ArrayList<Integer>> paths, ArrayList<Integer> tempPath, TreeNode root, int target) {
+        if (root == null) return;
+        tempPath.add(root.val);
+        target -= root.val;
+        if (target == 0 && root.left == null && root.right == null)
+            paths.add(new ArrayList<Integer>(tempPath));
+        AddFindPath(paths, tempPath, root.left, target);
+        AddFindPath(paths, tempPath, root.right, target);
+        tempPath.remove(tempPath.size() - 1);
+    }
+
     public static void main(String[] args) {
         Solution solution = new Solution();
         TreeNode aaa = solution.reConstructBinaryTree
@@ -81,16 +144,20 @@ public class Solution {
                 new int[]{4, 7, 2, 1, 5, 3, 8, 6}
         );
         solution.prePrint(bbb);
-
+        System.out.println();
+        TreeNode root = new TreeNode(1);
+        TreeNode root1 = new TreeNode(2);
+        TreeNode root2 = new TreeNode(13);
+        TreeNode root3 = new TreeNode(14);
+        TreeNode root4 = new TreeNode(15);
+        root.left = root1;
+        root.right = root2;
+        root1.left = root3;
+        root1.right = root4;
+        ArrayList<Integer> aaabbb = solution.PrintFromTopToBottom(root);
+        for (int i = 0; i < aaabbb.size(); i++) {
+            System.out.println(aaabbb.get(i));
+        }
     }
 }
 
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-
-    TreeNode(int x) {
-        val = x;
-    }
-}

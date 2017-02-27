@@ -1,6 +1,8 @@
 package com.szh.algorithm.array;
 
 
+import java.util.ArrayList;
+
 /**
  * Created by zhihaosong on 17-2-22.
  */
@@ -239,7 +241,33 @@ public class ArraySolution {
         }
     }
 
+    public ArrayList<Integer> printMatrix(int[][] matrix) {
+        if (matrix == null)
+            return null;
+        ArrayList<Integer> printArr = new ArrayList<Integer>();
+        int rows = matrix.length;
+        int columns = matrix[0].length;
+        int circles = (((rows < columns ? rows : columns) - 1) >> 1) + 1;//圈数
+        for (int i = 0; i < circles; i++) {
+            for (int j = i; j < columns - i; j++) {
+                printArr.add(matrix[i][j]);
+            }
+            for (int j = i + 1; j < rows - i; j++) {
+                printArr.add(matrix[j][columns - i - 1]);
+            }
+            for (int j = columns - i - 2; j > i - 1 && rows - i - 1 != i; j--) {
+                printArr.add(matrix[rows - i - 1][j]);
+            }
+            for (int j = rows - i - 2; j > i && columns - i - 1 != i; j--) {
+                printArr.add(matrix[j][i]);
+            }
+        }
+        return printArr;
+    }
+
     public static void main(String[] args) {
+        int[][] array22 = {{1}, {5}, {9}, {13}};
+
         int[][] array = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}};
         ArraySolution arraySolution = new ArraySolution();
         System.out.println(arraySolution.find(7, array));
@@ -251,6 +279,13 @@ public class ArraySolution {
         for (int i = 0; i < arrays.length; i++) {
             System.out.print(arrays[i] + "\t");
         }
+        System.out.println("tets");
+
+        System.out.println(0 >> 1);
         System.out.println(arraySolution.Power(10, -5));
+        ArrayList<Integer> printArr = arraySolution.printMatrix(array);
+        for (int i = 0; i < printArr.size(); i++) {
+            System.out.print(printArr.get(i) + "\t");
+        }
     }
 }
