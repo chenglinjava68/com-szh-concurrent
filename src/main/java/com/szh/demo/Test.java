@@ -3,12 +3,16 @@ package com.szh.demo;
 import com.alibaba.fastjson.JSON;
 
 import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Created by zhihaosong on 17-2-23.
  */
 public class Test {
-
+    ExecutorService pool = Executors.newFixedThreadPool(5);
+    ExecutorService pool2 = Executors.newSingleThreadExecutor();
+    ExecutorService pool23 = Executors.newCachedThreadPool();
 
     //批量接口仅共发送非实时邮件。
    /* public int sendEmailBatch(List<Map<String, String>> mailDataList) {

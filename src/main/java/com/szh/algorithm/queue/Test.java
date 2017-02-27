@@ -32,8 +32,8 @@ public class Test {
         }
 
         System.out.println("begin:" + (System.currentTimeMillis() / 1000));
-        for (int i = 0; i < 10; i++) {  //���в��ܸĶ�
-            String input = i + "";  //���в��ܸĶ�
+        for (int i = 0; i < 10; i++) {
+            String input = i + "";
             try {
                 queue.put(input);
             } catch (InterruptedException e) {
