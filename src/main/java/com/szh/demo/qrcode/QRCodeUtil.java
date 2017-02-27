@@ -1,9 +1,5 @@
-/*
 package com.szh.demo.qrcode;
 
-import com.dajie.common.file.enums.FileSavedType;
-import com.dajie.common.file.model.UploadReturnModel;
-import com.dajie.common.file.service.FileUploadService;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.MultiFormatWriter;
@@ -18,10 +14,9 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
-*/
 /**
- * Created by zhihaosong on 16-5-18.
- *//*
+ * Created by zhihaosong on 16-5-18.*/
+
 
 public class QRCodeUtil {
 
@@ -44,4 +39,3 @@ public class QRCodeUtil {
        // UploadReturnModel model = FileUploadService.uploadFromStream(inputStream, "qr.jpg", FileSavedType.common_image);
     }
 }
-*/

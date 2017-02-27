@@ -1,6 +1,8 @@
 package com.szh.demo.qrcode;
 
 
+import java.util.concurrent.Executors;
+
 /**
  * Created by zhihaosong on 16-6-1.
  */
@@ -38,6 +40,8 @@ public class TestCode {
     }*/
     public static void main(String[] args) {
         System.out.println(1000==1000);
+
+        Executors.newSingleThreadExecutor().schedule()
     }
 
 }

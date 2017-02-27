@@ -33,7 +33,7 @@ public class QrCode {
         }
 
 
-        System.out.println(QrCode.readQRCode("/home/zhihaosong/workspace/com-szh-demo/target/1477134992.png", "UTF-8", null));
+       // System.out.println(QrCode.readQRCode("/home/zhihaosong/workspace/com-szh-concurrent/1477134992.png", "UTF-8", null));
     }
 
     public static void createQRCode(String qrCodeData, String filePath,

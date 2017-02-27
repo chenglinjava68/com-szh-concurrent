@@ -44,7 +44,6 @@ public class Test {
     }
 }
 
-//���ܸĶ���TestDo��
 class TestDo {
     public static String doSome(String input) {
 
