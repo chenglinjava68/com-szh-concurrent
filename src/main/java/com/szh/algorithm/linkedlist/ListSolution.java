@@ -39,6 +39,33 @@ public class ListSolution {
         }
     }
 
+    public ListNode FindFirstCommonNode(ListNode pHead1, ListNode pHead2) {
+        if (pHead1 == null || pHead2 == null)
+            return null;
+        int count1 = 0, count2 = 0;
+        ListNode pTemp = pHead1;
+        while (pTemp != null) {
+            count1++;
+            pTemp = pTemp.next;
+        }
+        pTemp = pHead2;
+        while (pTemp != null) {
+            count2++;
+            pTemp = pTemp.next;
+        }
+        int flag = count1 - count2;
+        pTemp = flag > 0 ? pHead1 : pHead2;
+        ListNode nexNode = flag < 0 ? pHead1 : pHead2;
+        for (int i = 0; i < flag; i++) {
+            pTemp = pTemp.next;
+        }
+        while (pTemp != nexNode) {
+            pTemp = pTemp.next;
+            nexNode = nexNode.next;
+        }
+        return pTemp == null ? null : pTemp;
+    }
+
     public static void main(String[] args) {
 
     }

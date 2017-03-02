@@ -2,6 +2,9 @@ package com.szh.algorithm.array;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  * Created by zhihaosong on 17-2-22.
@@ -265,6 +268,152 @@ public class ArraySolution {
         return printArr;
     }
 
+    public int MoreThanHalfNum_Solution(int[] array) {
+        if (array == null || array.length == 0)
+            return 0;
+        int temp = array[0];
+        int len = array.length, count = 1;
+        for (int i = 1; i < len; i++) {
+            if (array[i] == temp) count++;
+            else count--;
+            if (count == 0) {
+                temp = array[i];
+                count = 1;
+            }
+            count = 0;
+            for (int j = 0; j < len; j++) {
+                if (array[j] == temp)
+                    count++;
+            }
+        }
+        return 2 * count > len ? temp : 0;
+    }
+
+    public ArrayList<Integer> GetLeastNumbers_Solution(int[] input, int k) {
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        if (input == null || input.length == 0 ||
+                k <= 0 || input.length < k)
+            return result;
+        Arrays.sort(input);
+        for (int i = 0; i < k; i++) {
+            result.add(input[i]);
+        }
+        return result;
+    }
+
+    public int FindGreatestSumOfSubArray(int[] array) {
+        if (array == null || array.length == 0) return 0;
+        int sum = 0, tempSum = Integer.MIN_VALUE;
+        for (int i = 0; i < array.length; i++) {
+            if (sum <= 0)
+                sum = array[i];
+            else sum += array[i];
+            if (sum > tempSum)
+                tempSum = sum;
+        }
+        return tempSum;
+    }
+
+    public String PrintMinNumber(int[] numbers) {
+        if (numbers == null || numbers.length == 0) return "";
+        int len = numbers.length;
+        String[] strArr = new String[numbers.length];
+        for (int i = 0; i < len; i++) {
+            strArr[i] = numbers[i] + "";
+        }
+        Arrays.sort(strArr, new Comparator<String>() {
+            @Override
+            public int compare(String before, String next) {
+                return (before + next).compareTo(next + before);
+            }
+        });
+        StringBuffer result = new StringBuffer();
+        for (int i = 0; i < len; i++) {
+            result.append(strArr[i]);
+
+        }
+        return new String(result);
+    }
+
+    public int GetNumberOfK(int[] array, int k) {
+        int count = 0;
+        if (array == null || array.length == 0) return count;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == k)
+                count++;
+            else if (array[i] > k)
+                break;
+        }
+        return count;
+    }
+
+    public ArrayList<ArrayList<Integer>> FindContinuousSequence(int sum) {
+        ArrayList<ArrayList<Integer>> res = new ArrayList<ArrayList<Integer>>();
+        if (sum < 3) return res;
+        int mid = (1 + sum) >> 1;
+        int small = 1;
+        int big = 2;
+        int current = small + big;
+        while (small < mid && big < sum) {
+            while (current > sum) {
+                current -= small;
+                small++;
+            }
+            if (current == sum) {
+                ArrayList<Integer> list = new ArrayList<Integer>();
+                for (int i = small; i <= big; i++) {
+                    list.add(i);
+                }
+                res.add(list);
+            }
+            big++;
+            current += big;
+        }
+        return res;
+    }
+
+    public ArrayList<Integer> FindNumbersWithSum(int[] array, int sum) {
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        if (array.length < 3)
+            return result;
+        int low = 0, high = array.length - 1;
+        while (low < high) {
+            int val = array[low] + array[high];
+            if (val == sum) {
+                result.add(array[low]);
+                result.add(array[high]);
+                break;
+            } else if (val > sum)
+                high--;
+            else
+                low++;
+        }
+        return result;
+    }
+
+    public String LeftRotateString(String str, int n) {
+        if (str == null || str.length() == 0 || n <= 0)
+            return new String();
+        return str.substring(n) + str.substring(0, n);
+    }
+
+    public String ReverseSentence(String str) {
+        if (str == null || str.trim().length() == 0) return str;
+        StringBuffer bf = new StringBuffer();
+        String[] strArr = str.split(" ");
+        for (int i = strArr.length - 1; i >= 0; i--) {
+            bf.append(strArr[i]).append(" ");
+        }
+        System.out.println(bf);
+        return new String(bf.substring(0, bf.length() - 1));
+    }
+
+    public boolean isContinuous(int[] numbers) {
+        if (numbers == null || numbers.length < 1)
+            return false;
+        return true;
+    }
+
     public static void main(String[] args) {
         int[][] array22 = {{1}, {5}, {9}, {13}};
 
@@ -287,5 +436,10 @@ public class ArraySolution {
         for (int i = 0; i < printArr.size(); i++) {
             System.out.print(printArr.get(i) + "\t");
         }
+        int[] a = null;
+        System.out.println();
+
+        System.out.println();
+        System.out.println(arraySolution.ReverseSentence(" ") + "sss");
     }
 }
