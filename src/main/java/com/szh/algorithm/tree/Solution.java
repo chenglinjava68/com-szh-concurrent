@@ -1,10 +1,7 @@
 package com.szh.algorithm.tree;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * 前序遍历+中序遍历 重构二叉树
@@ -130,6 +127,55 @@ public class Solution {
         tempPath.remove(tempPath.size() - 1);
     }
 
+    public int FirstNotRepeatingChar(String str) {
+        if (str == null || str.length() == 0)
+            return -1;
+        char[] charArr = str.toCharArray();
+        int len = charArr.length;
+        int[] temp = new int['z' + 1];
+
+        for (int i = 0; i < len; i++) {
+            temp[(int) charArr[i]]++;
+        }
+        for (int i = 0; i < len; i++) {
+            if (temp[(int) charArr[i]] == 1)
+                return i;
+        }
+        return -1;
+    }
+
+    public int TreeDepth(TreeNode root) {
+        if (root == null)
+            return 0;
+        return Math.max(TreeDepth(root.left), TreeDepth(root.right)) + 1;
+    }
+
+    public boolean IsBalanced_Solution(TreeNode root) {
+        if (root == null) return true;
+        if (Math.abs(TreeDepth(root.left) - TreeDepth(root.right)) > 1)
+            return false;
+        return IsBalanced_Solution(root.left) && IsBalanced_Solution(root.right);
+    }
+
+    public void FindNumsAppearOnce(int[] array, int num1[], int num2[]) {
+        if (array == null || array.length < 2) return;
+        int flag = 1;
+        int result = 0;
+        for (int i = 0; i < array.length; i++) {
+            result ^= array[i];
+        }
+        while ((result & flag) == 0)
+            flag = flag << 1;
+        for (int i = 0; i < array.length; i++) {
+            if ((flag & array[i]) == 0)
+                num1[0] ^= array[i];
+            else
+                num2[0] ^= array[i];
+        }
+    }
+
+
+
     public static void main(String[] args) {
         Solution solution = new Solution();
         TreeNode aaa = solution.reConstructBinaryTree
@@ -158,6 +204,10 @@ public class Solution {
         for (int i = 0; i < aaabbb.size(); i++) {
             System.out.println(aaabbb.get(i));
         }
+        int[] aa = new int[1];
+        int[] bb = new int[1];
+        solution.FindNumsAppearOnce(new int[]{2, 4, 3, 6, 3, 2, 5, 5}, aa, bb);
+        System.out.println(aa[0] + "\t" + bb[0]);
     }
 }
 
