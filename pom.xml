@@ -172,6 +172,11 @@
             <artifactId>quartz-jobs</artifactId>
             <version>2.2.1</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.dajie</groupId>
+            <artifactId>dj-common-file</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

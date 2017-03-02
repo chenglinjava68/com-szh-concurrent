@@ -36,6 +36,5 @@ public class QRCodeUtil {
 
     public static void main(String[] args) throws IOException, WriterException {
         InputStream inputStream = createQRCode("http://www.dajie.com?key=ksinak", 300, 300);
-       // UploadReturnModel model = FileUploadService.uploadFromStream(inputStream, "qr.jpg", FileSavedType.common_image);
     }
 }
