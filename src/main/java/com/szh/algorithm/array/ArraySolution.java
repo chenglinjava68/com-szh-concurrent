@@ -411,7 +411,56 @@ public class ArraySolution {
     public boolean isContinuous(int[] numbers) {
         if (numbers == null || numbers.length < 1)
             return false;
-        return true;
+        int min = -1, max = 14;
+        int[] temp = new int[14];
+        for (int i = 0; i < numbers.length; i++) {
+            int num = numbers[i];
+            if (num <= min || num >= max)
+                return false;
+            temp[num]++;
+            if (temp[num] > 1) return false; //对子
+            if (num == 0)
+                continue;
+            if (num < min) min = num;
+            else if (num > max) max = num;
+        }
+        return max - min < 5;
+    }
+
+    public int LastRemaining_Solution(int n, int m) {
+        if (n < 1 || m < 1) return -1;
+        int result = 0;
+        for (int i = 2; i <= n; i++) {
+            result = (result + m) % i;
+        }
+        return result;
+    }
+
+    public int Sum_Solution(int n) {
+        int sum = 0;
+        boolean a = (n > 0) && ((sum += Sum_Solution(n - 1)) > 0);
+        return sum;
+    }
+
+    public int Add(int num1, int num2) {
+        while (num2 > 0) {
+            int temp = num1 ^ num2;//无进位
+            num2 = (num1 & num2) << 1;//有进位
+            num1 = temp;
+        }
+        return num1;
+    }
+
+    public boolean duplicate(int numbers[], int length, int[] duplication) {
+        for (int i = 0; i < length; i++) {
+            int tmp = numbers[i] % length; //拿到原始数据
+            numbers[i] += length;             //再加一个长度
+            if (numbers[i] >= length << 1) {  //加了两个长度的返回。
+                duplication[0] = numbers[i];
+                return true;
+            }
+        }
+        return false;
     }
 
     public static void main(String[] args) {
@@ -441,5 +490,8 @@ public class ArraySolution {
 
         System.out.println();
         System.out.println(arraySolution.ReverseSentence(" ") + "sss");
+
+        int[] array222 = {1, 3, 2, 5, 4};
+        System.out.println(arraySolution.isContinuous(array222));
     }
 }
