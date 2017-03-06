@@ -174,7 +174,94 @@ public class Solution {
         }
     }
 
+    public TreeLinkNode GetNext(TreeLinkNode pNode) {
+        if (pNode == null) return pNode;
+        if (pNode.right != null) {
+            TreeLinkNode rightNode = pNode.right;
+            while (rightNode.left != null) {
+                rightNode = rightNode.left;
+            }
+            return rightNode;
+        }
+        while (pNode.next != null) {
+            if (pNode.next.left == pNode) return pNode.next;
+            pNode = pNode.next;
+        }
+        return null;
+    }
 
+    boolean isSymmetrical(TreeNode pRoot) {
+        if (pRoot == null) return true;
+        return isSymmetrical(pRoot.left, pRoot.right);
+    }
+
+    boolean isSymmetrical(TreeNode left, TreeNode right) {
+        if (left == null && right == null) return true;
+        if (left != null && right != null)
+            return left.val == right.val && isSymmetrical(left.left, right.right)
+                    && isSymmetrical(left.right, right.left);
+        return false;
+    }
+
+    public ArrayList<ArrayList<Integer>> Print(TreeNode pRoot) {
+        ArrayList<ArrayList<Integer>> res = new ArrayList<ArrayList<Integer>>();
+        if (pRoot == null)
+            return res;
+        Stack<TreeNode> stack1 = new Stack<TreeNode>();
+        Stack<TreeNode> stack2 = new Stack<TreeNode>();
+        stack1.add(pRoot);
+        while (!stack1.isEmpty() || !stack2.isEmpty()) {
+            if (!stack1.isEmpty()) {
+                ArrayList<Integer> aList1 = new ArrayList<Integer>();
+                while (!stack1.isEmpty()) {
+                    TreeNode note = stack1.pop();
+                    aList1.add(note.val);
+                    if (note.left != null) stack2.add(note.left);
+                    if (note.right != null) stack2.add(note.right);
+                }
+                res.add(aList1);
+            } else {
+                ArrayList<Integer> aList2 = new ArrayList<Integer>();
+                while (!stack2.isEmpty()) {
+                    TreeNode note = stack2.pop();
+                    aList2.add(note.val);
+                    if (note.right != null) stack1.add(note.right);
+                    if (note.left != null) stack1.add(note.left);
+                }
+                res.add(aList2);
+            }
+        }
+        return res;
+    }
+
+    ArrayList<ArrayList<Integer>> Print2(TreeNode pRoot) {
+        ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
+        if (pRoot == null) return result;
+        ArrayList<Integer> tmp = new ArrayList<Integer>();
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        queue.add(pRoot);
+        int lineLen = 1, count = 0;
+        while (!queue.isEmpty()) {
+            TreeNode current = queue.remove();
+            lineLen--;
+            tmp.add(current.val);
+            if (current.left != null) {
+                queue.add(current.left);
+                count++;
+            }
+            if (current.right != null) {
+                queue.add(current.right);
+                count++;
+            }
+            if (lineLen == 0) {
+                result.add(tmp);
+                tmp = new ArrayList<Integer>();
+                lineLen = count;
+                count = 0;
+            }
+        }
+        return result;
+    }
 
     public static void main(String[] args) {
         Solution solution = new Solution();
@@ -191,15 +278,19 @@ public class Solution {
         );
         solution.prePrint(bbb);
         System.out.println();
-        TreeNode root = new TreeNode(1);
-        TreeNode root1 = new TreeNode(2);
-        TreeNode root2 = new TreeNode(13);
-        TreeNode root3 = new TreeNode(14);
-        TreeNode root4 = new TreeNode(15);
+        TreeNode root = new TreeNode(8);
+        TreeNode root1 = new TreeNode(6);
+        TreeNode root2 = new TreeNode(10);
+        TreeNode root3 = new TreeNode(5);
+        TreeNode root4 = new TreeNode(7);
+        TreeNode root5 = new TreeNode(9);
+        TreeNode root6 = new TreeNode(11);
         root.left = root1;
         root.right = root2;
         root1.left = root3;
         root1.right = root4;
+        root2.left = root5;
+        root2.right = root6;
         ArrayList<Integer> aaabbb = solution.PrintFromTopToBottom(root);
         for (int i = 0; i < aaabbb.size(); i++) {
             System.out.println(aaabbb.get(i));
@@ -208,6 +299,10 @@ public class Solution {
         int[] bb = new int[1];
         solution.FindNumsAppearOnce(new int[]{2, 4, 3, 6, 3, 2, 5, 5}, aa, bb);
         System.out.println(aa[0] + "\t" + bb[0]);
+        System.out.println();
+
+        ArrayList<ArrayList<Integer>> print = solution.Print2(root);
+        System.out.println(print);
     }
 }
 

@@ -29,6 +29,10 @@ public class Solution {
 
     }
 
+    public boolean isNumeric(char[] str) {
+        return new String(str).matches("[\\+-]?[0-9]*(\\.[0-9]*)?([eE][\\+-][0-9]+)?");
+    }
+
     private void swap(char[] a, int i, int j) {
         char temp = a[i];
         a[i] = a[j];
