@@ -66,6 +66,15 @@ public class ListSolution {
         return pTemp == null ? null : pTemp;
     }
 
+    public RandomListNode Clone(RandomListNode pHead) {
+        if (pHead == null) return null;
+        RandomListNode cloneListNode = new RandomListNode(pHead.label);
+        cloneListNode.next = pHead.next;
+        cloneListNode.random = pHead.random;
+        cloneListNode.next = Clone(pHead.next);
+        return cloneListNode;
+    }
+
     public static void main(String[] args) {
 
     }
