@@ -10,7 +10,6 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class AbortTestClient {
     public static void main(String[] args) {
-
         final ThreadPoolExecutor executor = new ThreadPoolExecutor(1, 3, 2, TimeUnit.SECONDS,
                 new LinkedBlockingQueue<Runnable>(5));
 
@@ -28,7 +27,7 @@ public class AbortTestClient {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-                        System.out.println("run-" + Thread.currentThread().getName() );
+                        System.out.println("run-" + Thread.currentThread().getName());
                     }
                 });
             } catch (RejectedExecutionException e) {
@@ -42,6 +41,7 @@ public class AbortTestClient {
 class MyThreadFactory implements ThreadFactory {
     private String PREFIX = "";
     private AtomicInteger atomicInteger = new AtomicInteger(0);
+
     public MyThreadFactory(String threadName) {
         super();
         this.PREFIX = threadName;

@@ -31,15 +31,7 @@ public class BlockingQueueCommunication {
         BlockingQueue<Integer> queue1 = new ArrayBlockingQueue<Integer>(1);
         BlockingQueue<Integer> queue2 = new ArrayBlockingQueue<Integer>(1);
 
-        {
-            Collections.synchronizedMap(null);
-            try {
-                System.out.println("xxxxxdfsdsafdsa");
-                queue2.put(1);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+
 
         public void sub(int i) {
             try {
