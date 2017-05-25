@@ -43,11 +43,11 @@
             <version>${spring.version}</version>
         </dependency>
 
-           <dependency>
-               <groupId>org.springframework</groupId>
-               <artifactId>spring-tryCatchFianllyTest</artifactId>
-               <scope>tryCatchFianllyTest</scope>
-           </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tryCatchFianllyTest</artifactId>
+            <scope>tryCatchFianllyTest</scope>
+        </dependency>
 
         <dependency>
             <groupId>junit</groupId>
@@ -176,6 +176,13 @@
             <groupId>com.dajie</groupId>
             <artifactId>dj-common-file</artifactId>
         </dependency>
+        <!--MD5加密start -->
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.9</version>
+        </dependency>
+        <!--MD5加密end -->
     </dependencies>
 
     <build>
