@@ -8,6 +8,8 @@ import java.util.*;
  */
 public class HashMapTest {
     public static void iteratorRemove() {
+
+
         List<String> students = new ArrayList<String>();
         students.add("aa");
         students.add("bb");
